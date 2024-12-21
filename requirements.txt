@@ -1,5 +1,5 @@
 mysql-connector-python
-argon2-cffi
+
 flask
 flask_login
 flask_paginate
