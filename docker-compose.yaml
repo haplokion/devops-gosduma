@@ -1,0 +1,25 @@
+services:
+  composed-site:
+    image: "site"
+    links:
+      - composed-db
+    ports:
+      - "5000:5000"
+    depends_on:
+      - composed-db
+
+
+  composed-db:
+    image: "site-db"
+    environment:
+      MYSQL_DATABASE: site
+      MYSQL_ROOT_PASSWORD: test
+      MYSQL_PASSWORD: test
+      MYSQL_USER: user
+    ports:
+      - 3307:3306
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  db:
